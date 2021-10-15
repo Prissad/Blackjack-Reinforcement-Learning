@@ -40,14 +40,14 @@ def sarsaRoute():
     dealer_score = request.args.get('dealer')
     player_score = request.args.get('player')
     if ( number_games is not None and lambda_parameter is not None ):
-        lambda_parameter = int(lambda_parameter)
+        lambda_parameter = float(lambda_parameter)
         number_games = int(number_games)
         sarsa_result = runSARSA(lambda_parameter, number_games)
     elif ( number_games is not None ):
         number_games = int(number_games)
         sarsa_result = runSARSA(n_episodes=number_games)
-    elif ( number_games is not None ):
-        lambda_parameter = int(lambda_parameter)
+    elif ( lambda_parameter is not None ):
+        lambda_parameter = float(lambda_parameter)
         sarsa_result = runSARSA(lamb=lambda_parameter)
     else:
         sarsa_result = runSARSA()
