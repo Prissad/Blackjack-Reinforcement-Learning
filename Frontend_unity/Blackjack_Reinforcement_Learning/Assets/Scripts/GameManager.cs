@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 	public Button hitBtn;
 	public Button stickBtn;
 	public Button restartGameBtn;
+	public Button exitBtn;
 	// Game Result Text
 	public Text resultTxt;
 
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour {
 		hitBtn.onClick.AddListener(() => HitClicked());
 		stickBtn.onClick.AddListener(() => StickClicked());
 		restartGameBtn.onClick.AddListener(() => RestartGameClicked());
+		exitBtn.onClick.AddListener(() => ExitClicked());
 	}
 
 
@@ -171,5 +173,14 @@ public class GameManager : MonoBehaviour {
 	private void RestartGameClicked()
 	{
 		SceneManager.LoadScene(Constants.blackjackTableScene);
+	}
+
+
+	/*
+	 * Exit Game.
+	 */
+	 private void ExitClicked()
+	{
+		Application.Quit();
 	}
 }

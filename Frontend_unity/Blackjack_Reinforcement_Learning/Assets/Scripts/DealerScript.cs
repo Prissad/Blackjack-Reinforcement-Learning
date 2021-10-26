@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Assets.Scripts;
+﻿using Assets.Scripts;
 using UnityEngine;
 
 public class DealerScript : PersonScript {
