@@ -2,7 +2,19 @@
 {
     class Constants
     {
+        // Reinforcement Learning API
+        public static string apiBaseURL = "https://blackjackbackendrl.pythonanywhere.com/";
+        // MCC API
+        public static string apiUriMCC = "mcc";
+        public static string apiMccGameParam = "games";
+        // SARSA TD API
+        public static string apiUriSARSA = "sarsa";
+        public static string apiSarsaGameParam = "games";
+        public static string apiSarsaLambdaParam = "lambda";
+
+
         // Scene Name
+        public static string mainMenuScene = "Main Menu";
         public static string blackjackTableScene = "Blackjack Table";
         // Names for GameObject
         public static string deck = "Deck";

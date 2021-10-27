@@ -177,10 +177,10 @@ public class GameManager : MonoBehaviour {
 
 
 	/*
-	 * Exit Game.
+	 * Return To Main Menu.
 	 */
 	 private void ExitClicked()
 	{
-		Application.Quit();
+		SceneManager.LoadScene(Constants.mainMenuScene);
 	}
 }

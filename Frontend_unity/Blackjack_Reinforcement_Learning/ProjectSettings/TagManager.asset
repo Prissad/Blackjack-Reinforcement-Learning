@@ -47,3 +47,9 @@ TagManager:
   - name: Foreground
     uniqueID: 3319760169
     locked: 0
+  - name: Modal Credits
+    uniqueID: 3386903203
+    locked: 0
+  - name: Modal Model
+    uniqueID: 3914448177
+    locked: 0
