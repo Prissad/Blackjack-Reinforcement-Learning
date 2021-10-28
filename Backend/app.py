@@ -1,6 +1,8 @@
 # Setting Flask App
 from flask import Flask, request
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 
 # Importing Other Python Scripts
 from Blackjack.MCC import runMCC

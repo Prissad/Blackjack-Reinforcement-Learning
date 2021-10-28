@@ -62,6 +62,10 @@ namespace Assets.Scripts
             modelSettingsScript.BeforeApiCall();
             // Get Request
             UnityWebRequest getRequest = UnityWebRequest.Get(url);
+            getRequest.SetRequestHeader("Access-Control-Allow-Credentials", "true");
+            getRequest.SetRequestHeader("Access-Control-Allow-Headers", "Accept, Content-Type, X-Access-Token, X-Application-Name, X-Request-Sent-Time");
+            getRequest.SetRequestHeader("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
+            getRequest.SetRequestHeader("Access-Control-Allow-Origin", "*");
             yield return getRequest.SendWebRequest();
             // Store the result
             reinforcementLearningResult = StringToMatrix(getRequest.downloadHandler.text);
