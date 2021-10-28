@@ -10,8 +10,7 @@ public class MainMenuManager : MonoBehaviour {
 	public Button modelBtn;
 	public Button creditsBtn;
 	public Button quitBtn;
-	public Button closeCreditsBtn;
-	public Button closeModelBtn;
+	public Button closeCreditsBtn;	
 	// Main Menu Modals
 	public GameObject creditsModalCanvas;
 	public GameObject modelModalCanvas;
@@ -29,8 +28,7 @@ public class MainMenuManager : MonoBehaviour {
 		modelBtn.onClick.AddListener(() => ModelSettingsClicked());
 		creditsBtn.onClick.AddListener(() => CreditsClicked());
 		quitBtn.onClick.AddListener(() => QuitClicked());
-		closeCreditsBtn.onClick.AddListener(() => CloseCreditsClicked());
-		closeModelBtn.onClick.AddListener(() => CloseModelClicked());
+		closeCreditsBtn.onClick.AddListener(() => CloseCreditsClicked());		
 	}
 
 
@@ -76,14 +74,5 @@ public class MainMenuManager : MonoBehaviour {
 	private void CloseCreditsClicked()
 	{
 		creditsModalCanvas.SetActive(false);
-	}
-
-
-	/*
-	 * Close the Model Settings Modal.
-	 */
-	private void CloseModelClicked()
-	{
-		modelModalCanvas.SetActive(false);
 	}
 }

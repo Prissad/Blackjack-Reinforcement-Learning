@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour {
 	public PlayerScript playerScript;
 	public DealerScript dealerScript;
 
+	// Access A.I Hints Manager
+	public AIHintsScript aiHintsScript;
+
 	// Test if any of the player goes Bust
 	private bool personBust = false;
 	// Test if Player gets a Blackjack
@@ -60,13 +63,8 @@ public class GameManager : MonoBehaviour {
 		// Fill both Player's Hands Starting with the Dealer (to make traking the hidden card's position easier).
 		dealerScript.FillHand();
 		playerScript.FillHand();
-		// Test if Player got a Blackjack from the Start
-		if (playerScript.TestBlackjack())
-		{
-			SetResultText(Constants.playerBlackjack);
-			playerBlackjack = true;
-			EndGame(personBust: personBust, playerBlackjack: playerBlackjack);
-		}
+		// Test for Bust and Blackjack
+		TestBustAndBlackjackAndUpdateHint(drawCard: false);
 	}
 
 	/*
@@ -79,19 +77,8 @@ public class GameManager : MonoBehaviour {
 		{
 			hitBtn.interactable = false;
 		}
-		// Draw a Card and test if Player goes Bust OR gets a Blackjack
-		if (playerScript.HitCardTestBust())
-		{
-			SetResultText(Constants.playerBust);
-			this.personBust = true;
-			EndGame(personBust: personBust, playerBlackjack: playerBlackjack);
-		}
-		else if (playerScript.TestBlackjack())
-		{
-			SetResultText(Constants.playerBlackjack);
-			playerBlackjack = true;
-			EndGame(personBust: personBust, playerBlackjack: playerBlackjack);
-		}
+		// Draw a Card and Test for Bust and Blackjack
+		TestBustAndBlackjackAndUpdateHint(drawCard: true);
 	}
 
 	/*
@@ -111,6 +98,35 @@ public class GameManager : MonoBehaviour {
 
 		// Finish the Game and show the Results if no one is Bust
 		EndGame(personBust: personBust, playerBlackjack: playerBlackjack);
+	}
+
+
+	/*
+	 * Routine to check for Bust and Blackjack and update Hint Area accordingly.
+	 */
+	void TestBustAndBlackjackAndUpdateHint(bool drawCard)
+	{
+		// Draws a card if Hit, doesn't if Deal and Test Bust in both cases
+		bool playerBust = drawCard ? playerScript.HitCardTestBust() : playerScript.TestBust();
+		// Manage Bust
+		if (playerBust)
+		{
+			SetResultText(Constants.playerBust);
+			this.personBust = true;
+			EndGame(personBust: personBust, playerBlackjack: playerBlackjack);
+		}
+		// Test Blackjack
+		else if (playerScript.TestBlackjack())
+		{
+			SetResultText(Constants.playerBlackjack);
+			playerBlackjack = true;
+			EndGame(personBust: personBust, playerBlackjack: playerBlackjack);
+		}
+		// Update A.I Hint
+		else
+		{
+			aiHintsScript.FindAction(playerScript.shownHandValue, dealerScript.shownHandValue);
+		}
 	}
 
 
@@ -161,6 +177,9 @@ public class GameManager : MonoBehaviour {
 		{
 			TestWinner();
 		}
+
+		// Update A.I Hints
+		aiHintsScript.EndRoundHint();
 
 		// Enable Restart Game Button
 		restartGameBtn.interactable = true;

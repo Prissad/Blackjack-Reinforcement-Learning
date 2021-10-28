@@ -4,13 +4,41 @@
     {
         // Reinforcement Learning API
         public static string apiBaseURL = "https://blackjackbackendrl.pythonanywhere.com/";
-        // MCC API
+        // Learning Method API URI
         public static string apiUriMCC = "mcc";
-        public static string apiMccGameParam = "games";
-        // SARSA TD API
         public static string apiUriSARSA = "sarsa";
-        public static string apiSarsaGameParam = "games";
-        public static string apiSarsaLambdaParam = "lambda";
+        // Parameters API        
+        public static string apiGameParam = "games";
+        public static string apiLambdaParam = "lambda";
+        // Default API values
+        public static int defaultNumberGames = 1000000;
+        public static int defaultLambdaValue = 0;
+        // Settings Constants        
+        public static string negativeSign = "-";
+        public static int maxNumberGamesDigitsAllowed = 7;
+        public static string trainBtnDefaultTxt = "Train";
+        public static string trainBtnProgressTxt = "Training..";
+        public static string dialogBoxSuccessTitle = "A.I Successfully Trained !";
+        public static string dialogBoxSuccessInfo = "The A.I will give you hints during the Game.";
+        public static string dialogBoxFailTitle = "Network Error ! A.I wasn't updated !";
+        public static string dialogBoxFailInfo = "Please try again in a few minutes.";
+        public static string dialogBoxOkButton = "Continue";
+        // A.I Hints Constants
+        public static string modelNotTrained = "<size=35>A.I wasn't trained! Go back to the main menu to train it!</size>";
+        public static string checkingModel = "Calculating...";
+        public static string endRound = "<size=50>Waiting for next round...</size>";
+
+
+        // Delimiters Constants
+        public static string getRequestParameters = "?";
+        public static string getRequestValueParameter = "=";
+        public static string getRequestAnotherParameter = "&";
+        public static char getResponseFirstCharacter = '[';
+        public static char getResponseLastCharacter = ']';
+        public static string getResponseMiddleCharacters = "], [";
+        public static char getResponseTrimCharacter1 = '\'';
+        public static char getResponseTrimCharacter2 = ' ';
+        public static char getResponseSplitCharacter = ',';
 
 
         // Scene Name
@@ -44,7 +72,7 @@
         // Deck Constants
         public static int numberColors = 4;
         public static int numberCardsPerColor = 13;
-        public static int numberCardsDeck = numberCardsPerColor * numberColors + 1;
+        public static int numberCardsDeck = numberCardsPerColor * numberColors /*+ 1*/;
         // Card Constants
         public static int aceValue = 11;
         public static int jackQueenKingValue = 10;

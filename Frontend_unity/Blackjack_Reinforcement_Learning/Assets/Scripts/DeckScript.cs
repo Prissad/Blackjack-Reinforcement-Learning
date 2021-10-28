@@ -7,6 +7,7 @@ public class DeckScript : MonoBehaviour {
 	int[] cardValues = new int[Constants.numberCardsDeck]; // contains values relative to sprites
 	int currentTopDeckIndex = 0; // an index to point at the top non-dealt card of the deck.
 
+
 	/*
 	 * Start Method
 	 */
@@ -14,6 +15,7 @@ public class DeckScript : MonoBehaviour {
 		// Assign card Values in Deck
 		GetCardValues();		
 	}
+
 
 	/*
 	 * Method used to assign Values to the different Cards while respecting the same order as the Sprites.
@@ -42,9 +44,8 @@ public class DeckScript : MonoBehaviour {
 				cardValues[spriteCount] = num + offset;
 			}
 		}
-
-		cardValues[Constants.numberCardsDeck - 1] = Constants.cardBackValue;
 	}
+
 
 	/*
 	 * Method called to Randomly Shuffle the Deck by swapping random elements in the array.
@@ -65,6 +66,7 @@ public class DeckScript : MonoBehaviour {
 			cardValues[randomCardPosition] = cardValue;
 		}
 	}
+
 
 	/*
 	 * Method used to deal cards at the start of the game.
@@ -93,20 +95,14 @@ public class DeckScript : MonoBehaviour {
 		this.currentTopDeckIndex++;
 		return cardScript.Value;
 	}
+
+
 	/*
 	 * Method used to update a specified card sprite from the card back sprite to the value sprite.
 	 */
 	public void RenderCardSprite(CardScript cardScript, int spritePosition)
 	{
 		cardScript.SetSprite(cardSprites[spritePosition]);
-	}
-
-	/*
-	 * Returns the Back Card Sprite.
-	 */
-	public Sprite GetCardBack()
-	{
-		return cardSprites[Constants.backCardPosition];
 	}
 
 }

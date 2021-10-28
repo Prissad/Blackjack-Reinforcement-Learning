@@ -54,7 +54,7 @@ public abstract class PersonScript : MonoBehaviour
 	/*
 	 * Check if the Person who drew a Card goes Bust or not.
 	 */
-	protected bool TestBust()
+	public bool TestBust()
 	{
 		if ( this.shownHandValue >= Constants.bustValue )
 		{
