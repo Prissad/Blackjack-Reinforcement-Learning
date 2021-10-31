@@ -33,6 +33,8 @@ Tools used:
 
 <p align="center">
   <img width="750" src="readme-assets/main_menu.png"/>
+</p>
+<p align="center">
   (The final game's main menu)
 </p>
 
@@ -58,7 +60,9 @@ Used Blackjack **simplified** Rules:
 Q-learning is a  **model-free** reinforcement learning algorithm. Since there are no labels, a reward system is used instead by setting the **Game Rules** and defining what is considered a *positive outcome* (**reward**) and what is considered a *negative outcome* (**punishment**). When starting to train your model, it will start taking random **Actions** (the randomness strategy can also be set) from different **States** and check the different outcomes. A *score* is set and updated each time for (State, Action) pair based on the actual score value, a Learning rate, the maximum expected reward possible and the actual reward found:
 
 <p align="center">
-  <img width="750" src="readme-assets/q_learning.png"/>
+  <img width="750" src="readme-assets/q_learning.png"/>  
+</p>
+<p align="center">
   (Update sequence of the Q value)
 </p>
 
@@ -77,6 +81,8 @@ By repeating this sampling multiple time, we can approach an **optimal Q functio
 
 <p align="center">
   <img width="750" src="readme-assets/mcc_q_function.png"/>
+</p>
+<p align="center">
   (Q function variation depending on the number of games played)
 </p>
 
@@ -89,6 +95,8 @@ The Q value update is made using an existing estimation, this is why we call thi
 
 <p align="center">
   <img width="750" src="readme-assets/td_q_function.png"/>
+</p>
+<p align="center">
   (Q value update comparison between MCC and TD)
 </p>
 
@@ -98,6 +106,8 @@ By doing a few experiments, we can conclude that a **smaller** Trace Factor take
 
 <p align="center">
   <img width="750" src="readme-assets/td_lambda_comparison.png"/>
+</p>
+<p align="center">
   (Mean Squared Error against number of episodes (capped at 50 000) for different values of Trace Factors)
 </p>
 
